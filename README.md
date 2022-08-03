@@ -44,8 +44,6 @@ create a new booking /api/bookings (POST)
 update a booking /api/bookings/{client_id}/{id} (PUT) 
 delete a product /api/products/{client_id}/{id} (DELETE)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
 ## Bookings
 
 Booking a product for a client first makes sure that the product exists, then it makes sure that the client exists; if both exist then it makes sure that there is still capacity available to book.
