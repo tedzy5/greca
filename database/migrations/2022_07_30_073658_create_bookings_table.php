@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('client_id')->references('id')->on('clients')->onDelete('cascade');
-            $table->foreignId('product_id')->references('id')->on('products')->onDelete('cascade');
+            $table->foreignId('client_id')->references('id')->on('clients')->onDelete('cascade')->index();
+            $table->foreignId('product_id')->references('id')->on('products')->onDelete('cascade')->index();
             $table->dateTime('booked_on')->default(now());
             $table->timestamps();
         });

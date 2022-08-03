@@ -41,7 +41,7 @@ show all available bookings /api/available/bookings (GET)
 show all unavailable bookings /api/unavailable/bookings (GET)
 show bookings for a specific client /api/bookings/{client_id} (GET)
 create a new booking /api/bookings (POST)
-update a booking /api/bookings/{client_id}/{id} (PUT)
+update a booking /api/bookings/{client_id}/{id} (PUT) 
 delete a product /api/products/{client_id}/{id} (DELETE)
 
 We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
