@@ -7,58 +7,45 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## About this basic project
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Using the base of Laravel framework, I am building a quick small web application that has clients table and products table where the booking tables has information regarding which client(s) order for what product(s):
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+This web application can be upgraded easily with much more advanced features where Laravel and it's co-plugin features can be used easily.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Building the database
 
-## Learning Laravel
+I used the mySQL installed type of database where I cn change that to PostgreSQL, SQLite or anything else as well.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Please, create the database and update the .env file what whatever's necessary before you run the "php artisan migrate" to build the tables at first then you can run "php artisan db:seed" to fill clients and products table randomly.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Clients Controller & Model
 
-## Laravel Sponsors
+Basic Clients controller has the main 5 functions (index, show, store, update, delete)
+You can simply test the links via API via POSTMAN to:
+show all /api/clients (GET)
+show specific client /api/clients/{id} (GET)
+create a new client /api/clients (POST)
+update a client /api/clients/{id} (PUT)
+/* DELETING a Client also deletes all bookings taken by the client */
+delete a client /api/clients/{id} (DELETE)
+
+show all /api/products (GET)
+show specific product /api/products/{id} (GET)
+create a new product /api/products (POST)
+update a product /api/products/{id} (PUT)
+delete a product /api/products/{id} (DELETE)
+
+show all /api/bookings (GET)
+show all available bookings /api/available/bookings (GET)
+show all unavailable bookings /api/unavailable/bookings (GET)
+show bookings for a specific client /api/bookings/{client_id} (GET)
+create a new booking /api/bookings (POST)
+update a booking /api/bookings/{client_id}/{id} (PUT)
+delete a product /api/products/{client_id}/{id} (DELETE)
 
 We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-### Premium Partners
+## Bookings
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Booking a product for a client first makes sure that the product exists, then it makes sure that the client exists; if both exist then it makes sure that there is still capacity available to book.
